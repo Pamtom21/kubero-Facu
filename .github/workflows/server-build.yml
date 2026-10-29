@@ -33,4 +33,4 @@ jobs:
         with:
           context: ./server
           push: true
-          tags: ghcr.io/${{ steps.owner.outputs.lc }}/kubero-Facu-server:latest
+          tags: ghcr.io/${{ steps.owner.outputs.lc }}/kubero-facu-server:latest
