@@ -24,13 +24,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lowercase repository owner
-        id: owner
-        run: echo "lc=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_OUTPUT"
+      - name: Lowercase current repository
+        id: repository
+        run: echo "lc=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
 
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: ./client
           push: true
-          tags: ghcr.io/${{ steps.owner.outputs.lc }}/kubero-facu-client:latest
+          tags: ghcr.io/${{ steps.repository.outputs.lc }}-client:latest
